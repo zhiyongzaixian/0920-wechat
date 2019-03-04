@@ -1,0 +1,6 @@
+<template name='listTmp'>
+  <view>
+    模板内容。。。
+  
+  </view>
+</template>

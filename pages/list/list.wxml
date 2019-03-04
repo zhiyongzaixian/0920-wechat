@@ -1,2 +1,21 @@
-<!--pages/list/list.wxml-->
-<text>pages/list/list.wxml</text>
+<import src="/pages/listTemplate/listTemplate.wxml" />
+
+<view class='listContainer'>
+  <swiper indicator-dots circular indicator-color='green' indicator-active-color='deeppink'>
+    <swiper-item>
+      <image src='/images/detail/carousel/01.jpg'></image>
+    </swiper-item>
+     <swiper-item>
+      <image src='/images/detail/carousel/02.jpg'></image>
+    </swiper-item>
+     <swiper-item>
+      <image src='/images/detail/carousel/03.jpg'></image>
+    </swiper-item>
+     <swiper-item>
+      <image src='/images/detail/carousel/04.jpg'></image>
+    </swiper-item>
+  </swiper>
+  <view>
+    <template is='listTmp' />
+  </view>
+</view>
