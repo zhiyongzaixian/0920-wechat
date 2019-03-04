@@ -1,1 +1,52 @@
 /* pages/listTemplate/listTemplate.wxss */
+.tmpContainer{
+  display: flex;
+  flex-direction: column;
+}
+
+.avatar_date {
+  padding: 10rpx;
+}
+
+.avatar_date image {
+  width: 60rpx;
+  height: 60rpx;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+
+.avatar_date text {
+  font-size: 32rpx;
+  vertical-align: middle;
+}
+
+.company {
+  margin-left: 10rpx;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+
+.tmpImg {
+  width: 100%;
+  height: 460rpx;
+}
+
+.content {
+  font-size: 32rpx;
+  text-indent: 32rpx;
+  /* letter-spacing: 10rpx; 对中文，字母有效*/
+  word-spacing: 40rpx; /*对单词有效，对中文不生效*/
+}
+
+.chat_view_container image {
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+.chat_view_container text {
+  vertical-align: middle;
+  font-size: 28rpx;
+  margin-right: 10rpx;
+
+}
