@@ -1,7 +1,7 @@
 <view class='indexContainer'>
   <image class='indexImg' src='/images/index/cart.jpg'></image>
-  <text class='userName'>hello 北方汉子</text>
-  <view class='goStudy'>
+  <text class='userName'>hello {{msg}}</text>
+  <view class='goStudy' catchtap='handleParent'>
     <text>开启小程序之旅</text>
   </view>
 </view>
