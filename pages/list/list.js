@@ -12,6 +12,13 @@ Page({
      datas: [] 
   },
 
+  toDetail(event){
+    console.log(event, '事件对象');
+    let {index} = event.currentTarget.dataset;
+    wx.navigateTo({
+      url: '/pages/detail/detail?index=' + index,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
