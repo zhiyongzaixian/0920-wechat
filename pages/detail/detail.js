@@ -1,7 +1,7 @@
 // pages/detail/detail.js
 let listDatas = require('../../datas/list-data.js');
-console.log(listDatas, typeof listDatas);
-
+let appData = getApp(); // 获取App的实例
+console.log(appData, typeof appData);
 
 Page({
 
@@ -10,7 +10,8 @@ Page({
    */
   data: {
     detailObj: {},
-    isCollected: false
+    isCollected: false,
+    isPlay: false
   },
   handleCollection(){
     let isCollected = !this.data.isCollected;
@@ -40,12 +41,33 @@ Page({
       data: obj
     })
   },
+  handleMusicPlay(){
+    let isPlay = !this.data.isPlay;
+    this.setData({
+      isPlay
+    })
+    let { dataUrl, title, coverImgUrl} = this.data.detailObj.music;
+    if(isPlay){
+      // 音乐播放
+      wx.playBackgroundAudio({
+        dataUrl,
+        title,
+        coverImgUrl
+      })
+
+    }else {
+      // 音乐暂停
+      wx.pauseBackgroundAudio()
+    }
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) { // options的默认值是空对象
       console.log(options);
       let index = options.index;
+      
       // 更新detailObj的状态
       this.setData({
         detailObj: listDatas.list_data[index],
@@ -62,6 +84,35 @@ Page({
         isCollected: true
       })
     }
+
+    // 判断当前的页面是否在播放音乐
+    if(appData.data.isMusicPlay && appData.data.pageIndex === index){
+      this.setData({
+        isPlay: true
+      })
+    }
+
+
+    // 监听音乐的播放和暂停
+    wx.onBackgroundAudioPlay(() => {
+      console.log('音乐播放');
+      this.setData({
+        isPlay: true
+      })
+      // 修改app中缓存的状态值
+      appData.data.isMusicPlay = true;
+      appData.data.pageIndex = index;
+    })
+
+    wx.onBackgroundAudioPause(() => {
+      console.log('音乐暂停');
+      this.setData({
+        isPlay: false
+      })
+
+      // 修改app中缓存的状态值
+      appData.data.isMusicPlay = false;
+    })
       
   },
 

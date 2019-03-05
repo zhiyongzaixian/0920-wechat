@@ -1,5 +1,6 @@
 <view class='detailContainer'>
-  <image class='detail_header' src='{{detailObj.detail_img}}'></image>
+  <image class='detail_header' src='{{isPlay?detailObj.music.coverImgUrl:detailObj.detail_img}}'></image>
+  <image catchtap='handleMusicPlay' class='musicImg' src='{{isPlay?"/images/music/music-start.png":"/images/music/music-stop.png"}}'></image>
   <view class='detail_author_date'>
     <image src='/images/index/cart.jpg'></image>
     <text>{{detailObj.author}}</text>
